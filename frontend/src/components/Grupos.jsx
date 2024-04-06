@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
 
 export function Grupos() {
-  const [groups, setGroups] = useState([]);
-
-  useEffect(() => {
+const [groups, setGroups] = useState([]);
+useEffect(() => {
     fetch("http://localhost:3001/groups").then(
-      (res) => {
+    (res) => {
         res.json().then(setGroups);
-      },
-      (err) => {}
+    },
+    (err) => {}
     );
-  },[]);
-  
-  return (
+}, []);
+
+return (
     <div>
-      {groups.map((group) => (
+    {groups.map((group) => (
         <div key={group.id}>{group.name}</div>
-      ))}
+    ))}
     </div>
-  );
+);
 }
