@@ -1,17 +1,18 @@
-import express from 'express';
+import Router from 'express-promise-router';
+import {groupController} from '../controller/group_controller.js';
 
 const groupRouter = () => {
 
-    const groupController = groupController();
+    const gController = groupController();
 
     const routesregister = () => {
-        const router = express.Router();
+        const router = Router();
 
-        router.get("/:id", groupController.getById);
-        router.get("/", groupController.getAll);
-        router.post("/", groupController.create);
-        router.put("/:id", groupController.editById);
-        router.delete("/:id", groupController.removeById);
+        router.get("/:id", gController.getById);
+        router.get("/", gController.getAll);
+        router.post("/", gController.create);
+        router.put("/:id", gController.editById);
+        router.delete("/:id", gController.removeById);
 
         return router;
     }

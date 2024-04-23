@@ -1,4 +1,4 @@
-import { Model } from "../database/memory";
+import { Model } from "../database/memory.js";
 
 const groupService = () => {
 
